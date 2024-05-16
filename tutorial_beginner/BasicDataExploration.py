@@ -1,17 +1,14 @@
 
-
-# Set up code checking
-from learntools.core import binder
-binder.bind(globals())
-from learntools.machine_learning.ex2 import *
-print("Setup Complete")
-
+#step 1
 import pandas as pd
-# Path of the file to read
-iowa_file_path = '../input/home-data-for-ml-course/train.csv'
 
-# Fill in the line below to read the file into a variable home_data
-home_data = ____
+iowa_file_path = 'train.csv'
+home_data = pd.read_csv(iowa_file_path) # loading csv
+print(home_data) # check if you could read csv properly 
 
-# Call line below with no argument to check that you've loaded the data correctly
-step_1.check()
+#step 2
+avg_lot_size = round(sum(home_data['LotArea']) / len(home_data['LotArea'])) # solve avg rounded to nearest integer
+newest_home_age = 2024 - max(home_data['YrSold']) # current year - sold year
+
+print(avg_lot_size)
+print(newest_home_age)
